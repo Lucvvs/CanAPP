@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/img/logo.png"
+         alt="Logo"
+         style="width: 100%; height: 20vw; object-fit: cover;" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" scroll="true" fullscreen>
+  <div class="bienvenida">
+    <h1>Iniciar Sesión <span class="marca">🔐</span></h1>
+  </div>
+
+  <div class="login-imagen-container">
+    <img src="assets/img/login-perro.png" alt="Login" class="login-imagen" />
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-item class="login-item">
+      <ion-label position="stacked" class="login-label">Correo electrónico</ion-label>
+      <ion-input
+        id="emailInput"
+        type="email"
+        formControlName="email"
+        inputmode="email"
+        autocapitalize="off"
+        (ionFocus)="onFocusScroll('emailInput')">
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="login-item">
+      <ion-label position="stacked" class="login-label">Contraseña</ion-label>
+      <ion-input
+        id="passInput"
+        type="password"
+        formControlName="password"
+        (ionFocus)="onFocusScroll('passInput')">
+      </ion-input>
+    </ion-item>
+
+    <div class="btn-ingresar-container" style="margin-top: 20px;">
+      <img
+        src="assets/img/btn-ingresar.png"
+        alt="Ingresar"
+        class="btn-ingresar"
+        (click)="login()"
+        [class.disabled]="loginForm.invalid"
+      />
+    </div>
+
+    <div class="login-error" *ngIf="loginError" style="margin-top: 10px;">
+      {{ loginError }}
+    </div>
+  </form>
+
+  <div class="registro-link" style="margin-top: 30px;" (click)="irARegistro()">
+    <p style="color: var(--ion-color-primary); text-align: center;">
+      ¿No tienes cuenta?
+      <strong style="cursor: pointer;">Regístrate</strong>
+    </p>
+  </div>
+</ion-content>

@@ -1,0 +1,175 @@
+.bienvenida h1 {
+  font-size: 2em;
+  text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+  margin-top: 10px;
+}
+
+.bienvenida h1 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-top: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.bienvenida span {
+  color: #0a7a68;
+  font-weight: bold;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+  margin-left: -20px;
+}
+
+.campo2 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+}
+
+
+
+ion-input,
+ion-datetime {
+  border: 1px solid #00728f65;
+  border-radius: 8px;
+  padding: 6px 12px;
+  background-color: #b3b3b3;
+  font-size: 1.2rem;
+  --placeholder-color: #000000;
+  width: 78vw; 
+  height: 11vw; 
+  margin: 5px auto;
+  --color: #000
+}
+
+ion-label {
+  font-size: 7vw;
+  font-weight: 500;
+  color: #007092;
+}
+
+.label-movible{
+  margin-left: 10vw;
+  display: block;
+}
+
+.label-movible2{
+  margin-left: 5vw;
+  display: block;
+}
+.label-movible3{
+  margin-left: 0vw;
+  display: block;
+}
+
+.campo-nacionalidad {
+  margin-left: 20px; 
+  width: calc(100% - 20px); 
+}
+
+
+ion-button.registro-btn {
+  --background: #0a7a68;
+  --background-hover: #0e947b;
+  --background-activated: #066656;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+  margin-bottom: env(safe-area-inset-bottom, 20px);
+
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+ion-button.registro-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.header-con-logo {
+  position: relative;
+}
+
+.logo-header {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+  display: block;
+}
+
+.boton-volver-img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.boton-volver-img img {
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: pulsoSombra 1.5s infinite ease-in-out;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.boton-volver-img:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes pulsoSombra {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+  }
+}
+
+.fecha-picker {
+  width: 100%;
+
+  input {
+    background: #b3b3b3;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 20px;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 15px;
+  margin-top: 4px;
+  margin-left: 40px;
+}

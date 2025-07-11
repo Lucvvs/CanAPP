@@ -1,0 +1,76 @@
+.header-con-logo {
+  position: relative;
+  padding-top: env(safe-area-inset-top, 20px);
+}
+
+.boton-volver-img,
+.boton-soporte-img {
+  padding-top: env(safe-area-inset-top, 20px);
+}
+
+.logo-header {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+  display: block;
+}
+
+/* VOLVER BOTON */
+
+.boton-volver-img {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.boton-volver-img img {
+  width: 45px;
+  height: 45px;
+  opacity: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: pulsoSombra 1.5s infinite ease-in-out;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.boton-volver-img:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes pulsoSombra {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+  }
+}
+
+
+/* BOTON SOPORTE */
+
+.boton-soporte-img {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.boton-soporte-img img {
+  width: 80px;
+  height: 80px;
+  opacity: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: pulsoSombra 1.5s infinite ease-in-out;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.boton-soporte-img:hover img {
+  transform: scale(1.1);
+}

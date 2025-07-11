@@ -1,0 +1,82 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <div class="bienvenida">
+    <h1>Registro de Usuarios <span class="marca"> 📝</span></h1>
+  </div>
+
+  <form [formGroup]="registroForm" (ngSubmit)="registrar()" class="formulario">
+
+    <div class="campo">
+      <ion-label class="label-movible" position="stacked">Nombre</ion-label>
+      <ion-input type="text" formControlName="nombre" placeholder="Ej: Juan"></ion-input>
+      <div class="error" *ngIf="getError('nombre')">{{ getError('nombre') }}</div>
+    </div>
+
+    <div class="campo">
+      <ion-label class="label-movible" position="stacked">Apellido</ion-label>
+      <ion-input type="text" formControlName="apellido" placeholder="Ej: Sánchez"></ion-input>
+      <div class="error" *ngIf="getError('apellido')">{{ getError('apellido') }}</div>
+    </div>
+
+    <div class="campo2">
+      <ion-label class="label-movible2" position="stacked">Fecha de nacimiento</ion-label>
+      <mat-form-field appearance="outline" class="fecha-picker">
+        <input matInput
+               [matDatepicker]="pickerNacimiento"
+               placeholder="Selecciona una fecha"
+               formControlName="fechaNacimiento"
+               [readonly]="true" />
+        <mat-datepicker-toggle matSuffix [for]="pickerNacimiento"></mat-datepicker-toggle>
+        <mat-datepicker #pickerNacimiento></mat-datepicker>
+      </mat-form-field>
+      <div class="error" *ngIf="getError('fechaNacimiento')">{{ getError('fechaNacimiento') }}</div>
+    </div>
+
+
+    <div class="campo campo-nacionalidad">
+  <ion-label class="label-movible3" position="stacked">Nacionalidad</ion-label>
+  <ion-select formControlName="nacionalidad" interface="popover" placeholder="Selecciona una opción">
+    <ion-select-option *ngFor="let n of nacionalidades" [value]="n">
+      {{ n }}
+    </ion-select-option>
+  </ion-select>
+  <div class="error" *ngIf="getError('nacionalidad')">{{ getError('nacionalidad') }}</div>
+</div>
+
+    <div class="campo">
+      <ion-label class="label-movible" position="stacked">Comuna</ion-label>
+      <ion-input type="text" formControlName="comuna" placeholder="Ej: Ñuñoa"></ion-input>
+      <div class="error" *ngIf="getError('comuna')">{{ getError('comuna') }}</div>
+    </div>
+
+    <div class="campo">
+      <ion-label class="label-movible" position="stacked">Dirección</ion-label>
+      <ion-input type="text" formControlName="direccion" placeholder="Ej: Av. Faldeos 3334"></ion-input>
+      <div class="error" *ngIf="getError('direccion')">{{ getError('direccion') }}</div>
+    </div>
+
+    <div class="campo">
+      <ion-label class="label-movible" position="stacked">Correo electrónico</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="Ej: xxxxxx@gmail.com"></ion-input>
+      <div class="error" *ngIf="getError('email')">{{ getError('email') }}</div>
+    </div>
+
+    <div class="campo">
+      <ion-label class="label-movible" position="stacked">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password" placeholder="Mínimo 6 caracteres"></ion-input>
+      <div class="error" *ngIf="getError('password')">{{ getError('password') }}</div>
+    </div>
+
+    
+
+    <ion-button
+      class="registro-btn"
+      expand="block"
+      type="submit"
+      [disabled]="registroForm.invalid">
+      Registrarse
+    </ion-button>
+
+  </form>
+</ion-content>

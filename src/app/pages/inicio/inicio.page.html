@@ -1,0 +1,101 @@
+
+<app-header></app-header>
+
+
+<ion-content class="ion-padding">
+
+  <!-- Bienvenida -->
+  <div class="bienvenida">
+    <h1>Bienvenido a <span>CánCut 🐶✂️</span></h1>
+  </div>
+
+ <!-- Novedades -->
+<div class="seccion-titulo">Novedades</div>
+
+<div class="scroll-novedades">
+  <ion-card *ngFor="let novedad of novedades" class="novedad-card">
+    <img [src]="novedad.img" />
+    <ion-card-header>
+      <ion-card-title>{{ novedad.titulo }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ novedad.descripcion }}</p>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+ <!-- Sucursales -->
+<div class="seccion-titulo">Sucursales</div>
+<ion-list>
+  <a *ngFor="let sucursal of sucursales; let i = index" [href]="sucursal.mapsUrl" target="_blank">
+    <ion-item button detail>
+      <ion-label>
+        <h3>{{ sucursal.nombre }}</h3>
+        <p>{{ sucursal.direccion }}</p>
+      </ion-label>
+      <img src="assets/img/icono-mapa.png" slot="end" class="icono-ubicacion-img delay-{{i}}" />
+    </ion-item>
+  </a>
+</ion-list>
+
+
+<!-- Lista de servicios -->
+<div class="seccion-titulo">Servicios</div>
+<h3 class="titulo-tamano">Selecciona un tamaño de mascota</h3>
+
+
+  <!-- Selector -->
+<div class="radio-container">
+  <div class="radio-item" (click)="razaSeleccionada = 'Pequeña'">
+    <mat-radio-button [checked]="razaSeleccionada === 'Pequeña'" [value]="'Pequeña'"></mat-radio-button>
+    <p>Pequeña</p>
+  </div>
+
+  <div class="radio-item" (click)="razaSeleccionada = 'Mediana'">
+    <mat-radio-button [checked]="razaSeleccionada === 'Mediana'" [value]="'Mediana'"></mat-radio-button>
+    <p>Mediana</p>
+  </div>
+
+  <div class="radio-item" (click)="razaSeleccionada = 'Grande'">
+    <mat-radio-button [checked]="razaSeleccionada === 'Grande'" [value]="'Grande'"></mat-radio-button>
+    <p>Grande</p>
+  </div>
+</div>
+
+
+<ion-list>
+  <ion-item *ngFor="let servicio of servicios">
+    <img [src]="servicio.imagen" class="servicio-img" slot="start" />
+
+    <ion-label class="label-servicio">
+      <h3>{{ servicio.nombre }}</h3>
+      <p>{{ servicio.precios[razaSeleccionada] | currency:'CLP' }}</p>
+    </ion-label>
+
+    <img [src]="servicio.imagen" class="servicio-img" slot="end" />
+  </ion-item>
+</ion-list>
+
+
+
+  <!-- Siguenos -->
+ <div class="seccion-titulo">Síguenos</div>
+
+<div class="social-container">
+  <a href="https://wa.me" target="_blank" class="social-icon">
+    <img src="assets/img/whatsapp.png" alt="WhatsApp" />
+  </a>
+  <a href="https://instagram.com" target="_blank" class="social-icon">
+    <img src="assets/img/instagram.png" alt="Instagram" />
+  </a>
+  <a href="https://facebook.com" target="_blank" class="social-icon">
+    <img src="assets/img/facebook.png" alt="Facebook" />
+  </a>
+  <a href="https://tiktok.com" target="_blank" class="social-icon">
+    <img src="assets/img/tiktok.png" alt="TikTok" />
+  </a>
+</div>
+
+</ion-content>
+
+

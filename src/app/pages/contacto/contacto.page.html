@@ -1,0 +1,83 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding" fullscreen scroll-y="true">
+
+  <div class="contacto-container">
+    <h2>📬 Contáctanos</h2>
+
+    <form [formGroup]="contactoForm" (ngSubmit)="enviar()">
+
+  <!-- Nombre -->
+  <ion-item>
+    <ion-label position="floating">Nombre y Apellido</ion-label>
+    <ion-input formControlName="nombre"></ion-input>
+  </ion-item>
+  <ion-text color="danger" *ngIf="contactoForm.get('nombre')?.touched && contactoForm.get('nombre')?.invalid">
+    <small *ngIf="contactoForm.get('nombre')?.errors?.['required']">Este campo es obligatorio.</small>
+    <small *ngIf="contactoForm.get('nombre')?.errors?.['pattern']">Debe tener entre 5 y 30 caracteres.</small>
+  </ion-text>
+
+  <!-- Correo -->
+  <ion-item>
+    <ion-label position="floating">Correo Electrónico</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+  <ion-text color="danger" *ngIf="contactoForm.get('email')?.touched && contactoForm.get('email')?.invalid">
+    <small *ngIf="contactoForm.get('email')?.errors?.['required']">Este campo es obligatorio.</small>
+    <small *ngIf="contactoForm.get('email')?.errors?.['email']">Correo no válido.</small>
+  </ion-text>
+
+  <!-- Asunto -->
+  <ion-item>
+    <ion-label>Asunto</ion-label>
+    <ion-select formControlName="tipoSolicitud" interface="popover" placeholder="Selecciona una opción">
+      <ion-select-option value="Reclamo">Reclamo</ion-select-option>
+      <ion-select-option value="Sugerencia">Sugerencia</ion-select-option>
+      <ion-select-option value="Consulta">Consulta</ion-select-option>
+      <ion-select-option value="Otro">Otro</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-text color="danger" *ngIf="contactoForm.get('tipoSolicitud')?.touched && contactoForm.get('tipoSolicitud')?.invalid">
+    <small>Debes seleccionar una opción.</small>
+  </ion-text>
+
+  <!-- Mensaje -->
+  <ion-item>
+    <ion-label position="floating">Mensaje</ion-label>
+    <ion-textarea formControlName="mensaje" rows="6"></ion-textarea>
+  </ion-item>
+  <ion-text color="danger" *ngIf="contactoForm.get('mensaje')?.touched && contactoForm.get('mensaje')?.invalid">
+    <small *ngIf="contactoForm.get('mensaje')?.errors?.['required']">Este campo es obligatorio.</small>
+    <small *ngIf="contactoForm.get('mensaje')?.errors?.['minlength']">Debe tener al menos 5 caracteres.</small>
+    <small *ngIf="contactoForm.get('mensaje')?.errors?.['maxlength']">No puede exceder los 200 caracteres.</small>
+  </ion-text>
+
+  <!-- Botones -->
+  <div class="botones-contacto">
+    <ion-button type="submit" color="success" [disabled]="contactoForm.invalid">
+      Enviar
+    </ion-button>
+    <ion-button type="button" color="medium" (click)="cancelar()">
+      Cancelar
+    </ion-button>
+  </div>
+</form>
+
+    <div class="datos-contacto">
+      <h3>📍 Sucursales</h3>
+      <p>📞 Providencia: +562 9494 1515<br>📌 Nueva Providencia #3131</p>
+      <p>📞 Ñuñoa: +562 1515 4111<br>📌 Irarrázaval #916</p>
+      <p>📞 Maipú: +564 4411 1111<br>📌 Pajaritos #4481</p>
+    </div>
+
+    <div class="horario">
+  <h3>⏰ Horarios de Atención</h3>
+  <p>🕘 Lunes a Viernes: 09:00 - 19:00 hrs</p>
+  <p>🕘 Sábados: 10:00 - 16:00 hrs</p>
+  <p>❌ Domingos y festivos: Cerrado</p>
+</div>
+  </div>
+
+ 
+
+</ion-content>

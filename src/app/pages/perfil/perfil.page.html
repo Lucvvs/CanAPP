@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+
+  <!-- INFORMACIÓN PERSONAL -->
+  <div class="perfil-seccion">
+    <h2 class="seccion-titulo">👤 Información Personal</h2>
+    <ion-card>
+      <ion-card-content>
+        <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+        <p><strong>Apellido:</strong> {{ usuario.apellido }}</p>
+        <p><strong>Fecha de nacimiento:</strong> {{ usuario.fechaNacimiento | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Comuna:</strong> {{ usuario.comuna }}</p>
+        <p><strong>Dirección:</strong> {{ usuario.direccion }}</p>
+        <p><strong>Correo electrónico:</strong> {{ usuario.email }}</p>
+        <p><strong>Nacionalidad:</strong> {{ usuario.nacionalidad }}</p> <!-- ✅ agregado -->
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- RESERVAS -->
+  <div class="perfil-seccion">
+    <h2 class="seccion-titulo">📅 Reservas Realizadas</h2>
+
+    <ng-container *ngFor="let r of reservas; let last = last">
+      <ion-card class="reserva-card">
+        <ion-card-header>
+          <div class="header-con-imagen">
+            <ion-card-title>
+              {{ r.nombreMascota }} ({{ r.edadMascota }} años)
+            </ion-card-title>
+            <img src="assets/img/perfil-mascota.png" alt="Mascota" class="img-mascota">
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Tamaño:</strong> {{ r.tamanoMascota }}</p>
+          <p><strong>Fecha:</strong> {{ r.fecha | date:'dd-MM-yyyy' }}</p>
+          <p><strong>Hora:</strong> {{ r.hora }}</p>
+          <p><strong>Lugar:</strong> {{ r.lugarEncuentro }}</p>
+          <p><strong>Sucursal:</strong> {{ r.sucursal }}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <hr *ngIf="!last" class="reserva-separador">
+    </ng-container>
+
+    <ng-template #sinReservas>
+      <ion-text color="medium">
+        <p style="text-align: center;">No hay reservas registradas aún.</p>
+      </ion-text>
+    </ng-template>
+  </div>
+
+</ion-content>

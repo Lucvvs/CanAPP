@@ -1,0 +1,143 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+
+
+.registro-link {
+  margin-top: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.registro-link:hover {
+  transform: scale(1.05);
+}
+
+.login-error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.bienvenida h1 {
+  font-size: 2em;
+  text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+  margin-top: 10px;
+}
+
+.bienvenida h1 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-top: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.login-imagen-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.login-imagen {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.5));
+  border-radius: 100px; 
+}
+
+.bienvenida h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.login-label {
+  color: rgb(0, 134, 134) !important;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.login-item {
+  margin-bottom: 14px;
+}
+
+.login-error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+ion-input {
+  font-size: 1.4rem; 
+}
+
+
+/* IMAGEN INGRESAR */
+.btn-ingresar-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-ingresar {
+  width: 90px;
+  height: auto;
+  cursor: pointer;
+  animation: pulseGlow 2s infinite ease-in-out;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-ingresar:hover {
+  transform: scale(0.95) rotateX(10deg);
+  filter: drop-shadow(0 0 15px rgba(0, 243, 12, 0.8));
+}
+
+.btn-ingresar.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  filter: grayscale(1);
+  animation: none;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(0, 243, 12, 0.4));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(0, 243, 12, 0.8));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(0, 243, 12, 0.4));
+  }
+}
