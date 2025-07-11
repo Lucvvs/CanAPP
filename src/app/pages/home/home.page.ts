@@ -33,36 +33,37 @@ export class HomePage {
   }
 
   async login() {
-    if (this.loginForm.invalid) {
-      this.loginError = 'Completa todos los campos';
-      return;
-    }
-
-    const { email, password } = this.loginForm.value;
-
-    try {
-      const valid = await this.sqlite.authenticate(email, password);
-      if (valid) {
-        console.log(`♥ Usuario ${email} encontrado y validado en la BDD`);
-        const user = await this.sqlite.getUsuario(email);
-
-        this.auth.login(user);
-        this.loginError = '';
-      } else {
-        this.loginError = 'Correo o contraseña incorrectos';
-        this.loginForm.reset();
-      }
-    } catch (e) {
-      console.error(e);
-      const toast = await this.toastCtrl.create({
-        message: 'Error al conectar con la base de datos',
-        duration: 2000,
-        color: 'danger'
-      });
-      await toast.present();
-    }
+  if (this.loginForm.invalid) {
+    this.loginError = 'Completa todos los campos';
+    return;
   }
 
+  const { email, password } = this.loginForm.value;
+
+  try {
+    const valid = await this.sqlite.authenticate(email, password);
+    if (valid) {
+      console.log(`♥ Usuario ${email} encontrado y validado en la BDD`);
+      const user = await this.sqlite.getUsuario(email);
+
+      this.auth.login(user); // ← guarda el usuario en sesión (asumo)
+      this.loginError = '';
+
+      this.router.navigate(['/inicio']); // ✅ AQUÍ VA LA REDIRECCIÓN
+    } else {
+      this.loginError = 'Correo o contraseña incorrectos';
+      this.loginForm.reset();
+    }
+  } catch (e) {
+    console.error(e);
+    const toast = await this.toastCtrl.create({
+      message: 'Error al conectar con la base de datos',
+      duration: 2000,
+      color: 'danger'
+    });
+    await toast.present();
+  }
+}
   irARegistro() {
     this.router.navigate(['/registro']);
   }
