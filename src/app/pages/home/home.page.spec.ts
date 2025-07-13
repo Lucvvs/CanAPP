@@ -62,8 +62,4 @@ describe('HomePage', () => {
     registro.triggerEventHandler('click');
     expect(component.irARegistro).toHaveBeenCalled();
   });
-
-
-
-
 });
