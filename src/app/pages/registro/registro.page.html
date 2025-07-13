@@ -22,14 +22,15 @@
     <div class="campo2">
       <ion-label class="label-movible2" position="stacked">Fecha de nacimiento</ion-label>
       <mat-form-field appearance="outline" class="fecha-picker">
-        <input matInput
-               [matDatepicker]="pickerNacimiento"
-               placeholder="Selecciona una fecha"
-               formControlName="fechaNacimiento"
-               [readonly]="true" />
-        <mat-datepicker-toggle matSuffix [for]="pickerNacimiento"></mat-datepicker-toggle>
-        <mat-datepicker #pickerNacimiento></mat-datepicker>
-      </mat-form-field>
+  <input matInput
+         [matDatepicker]="pickerNacimiento"
+         placeholder="Selecciona una fecha"
+         formControlName="fechaNacimiento"
+         [readonly]="true"
+         (click)="pickerNacimiento.open()" />
+  <mat-datepicker-toggle matSuffix [for]="pickerNacimiento"></mat-datepicker-toggle>
+  <mat-datepicker #pickerNacimiento></mat-datepicker>
+</mat-form-field>
       <div class="error" *ngIf="getError('fechaNacimiento')">{{ getError('fechaNacimiento') }}</div>
     </div>
 
