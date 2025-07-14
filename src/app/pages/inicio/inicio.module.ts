@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InicioPage } from './inicio.page';
-import { RouterModule } from '@angular/router';
 import { MatRadioModule } from '@angular/material/radio';
 import { HeaderModule } from '../../components/header/header.module';
+import { TabsModule } from '../../components/tabs/tabs.module';
+import { InicioPageRoutingModule } from './inicio-routing.module'; // ✅ Ruta correcta
 
 @NgModule({
   declarations: [InicioPage],
@@ -15,7 +16,8 @@ import { HeaderModule } from '../../components/header/header.module';
     IonicModule,
     MatRadioModule,
     HeaderModule,
-    RouterModule.forChild([{ path: '', component: InicioPage }])
+    TabsModule,
+    InicioPageRoutingModule // ✅ IMPORTACIÓN correcta del routing
   ]
 })
 export class InicioPageModule {}

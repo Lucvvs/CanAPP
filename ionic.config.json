@@ -1,5 +1,7 @@
 {
   "name": "CanAPP",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

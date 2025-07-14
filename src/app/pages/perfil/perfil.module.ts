@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { PerfilPage } from './perfil.page';
 import { HeaderModule } from '../../components/header/header.module';
+import { TabsModule } from '../../components/tabs/tabs.module';
 
 @NgModule({
   declarations: [PerfilPage],
@@ -13,6 +14,7 @@ import { HeaderModule } from '../../components/header/header.module';
     FormsModule,
     IonicModule,
     HeaderModule,
+    TabsModule,
     RouterModule.forChild([{ path: '', component: PerfilPage }])
   ]
 })

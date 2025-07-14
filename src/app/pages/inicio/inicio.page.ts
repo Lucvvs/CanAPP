@@ -91,13 +91,14 @@ export class InicioPage implements OnInit {
   constructor(private router: Router, private api: ApiService) {}
 
   async ngOnInit() {
-    try {
-      const position = await Geolocation.getCurrentPosition();
-      console.log('✅ Geolocalización activa:', position.coords.latitude, position.coords.longitude);
-    } catch (error) {
-      console.error('❌ Falló la geolocalización:', error);
-    }
+  console.log('🚀 InicioPage cargado'); // 👈 Agrega esto
+  try {
+    const position = await Geolocation.getCurrentPosition();
+    console.log('✅ Geolocalización activa:', position.coords.latitude, position.coords.longitude);
+  } catch (error) {
+    console.error('❌ Falló la geolocalización:', error);
   }
+}
 
   ionViewWillEnter() {
     this.api.getNovedades().subscribe({

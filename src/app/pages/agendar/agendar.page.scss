@@ -213,3 +213,10 @@ ion-radio-group {
     font-size: 20px;
   }
 }
+
+
+.tab-bar-espaciador {
+  height: 160px; // ⬅️ Igual o un poco más alto que tu tab bar
+  background: transparent; // Opcional: ponle color si quieres efecto visual
+  flex-shrink: 0;
+}

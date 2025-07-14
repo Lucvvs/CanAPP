@@ -334,3 +334,11 @@ ion-item h3 {
 .social-icon:hover img {
   filter: brightness(1.4) drop-shadow(0 0 6px rgba(0, 229, 255, 0.8));
 }
+
+.tab-bar-espaciador {
+  height: 160px; // ⬅️ Igual o un poco más alto que tu tab bar
+  background: transparent; // Opcional: ponle color si quieres efecto visual
+  flex-shrink: 0;
+}
+
+

@@ -6,9 +6,12 @@ export const authGuardGuard: CanActivateFn & CanActivateChildFn = () => {
   const auth = inject(AuthenticationService);
   const router = inject(Router);
 
-  if (auth.isAuthenticated()) {
+  const isAuth = auth.isAuthenticated();
+  console.log('🛡️ GUARD ejecutado. ¿Está autenticado?', isAuth);
+
+  if (isAuth) {
     return true;
   } else {
-    return router.createUrlTree(['']); // Redirige a home/login
+    return router.createUrlTree(['']);
   }
 };

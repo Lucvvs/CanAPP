@@ -58,5 +58,5 @@ describe('InicioPage', () => {
     const inicial = component.novedades.length;
     component.ionViewWillEnter();
     expect(component.novedades.length).toBe(inicial + 1);
-  });
+  }); 
 });

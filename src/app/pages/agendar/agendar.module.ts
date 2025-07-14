@@ -4,6 +4,7 @@ import { AgendarPage } from './agendar.page';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TabsModule } from 'src/app/components/tabs/tabs.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -22,6 +23,7 @@ import { HeaderModule } from '../../components/header/header.module';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    TabsModule,
     HeaderModule
   ]
 })

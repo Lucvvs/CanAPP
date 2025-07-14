@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
 interface Usuario {
@@ -17,6 +18,7 @@ interface Usuario {
 })
 export class AuthenticationService {
   private readonly STORAGE_KEY = 'usuarioActivo';
+  private usuario$ = new BehaviorSubject<Usuario | null>(this.getActiveUser());
 
   constructor(private router: Router) {}
 
@@ -26,16 +28,17 @@ export class AuthenticationService {
   }
 
   isAuthenticated(): boolean {
-    return this.getActiveUser() !== null;
+    return this.usuario$.value !== null;
   }
 
   login(usuario: Usuario): void {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(usuario));
-    this.router.navigate(['/tabs/inicio'], { replaceUrl: true });
+    this.usuario$.next(usuario); // ✅ Notifica a quien esté escuchando
   }
 
   logout(): void {
     localStorage.removeItem(this.STORAGE_KEY);
-    this.router.navigate([''], { replaceUrl: true });
+    this.usuario$.next(null);
+    this.router.navigate(['']);
   }
 }

@@ -1,21 +1,17 @@
-<ion-tabs>
-  <ion-tab-bar slot="bottom" class="custom-tab-bar">
+<div class="custom-tab-bar">
+  <button [routerLink]="['/inicio']" [ngClass]="{ 'tab-selected': isActive('/inicio') }">
+    <img src="assets/img/icono-inicio.png" class="tab-icon-img" />
+  </button>
 
-    <ion-tab-button tab="inicio" [routerLink]="['/tabs/inicio']">
-      <img src="assets/img/icono-inicio.png" class="tab-icon-img" />
-    </ion-tab-button>
+  <div class="separator"></div>
 
-    <div class="separator"></div> 
+  <button [routerLink]="['/agendar']" [ngClass]="{ 'tab-selected': isActive('/agendar') }">
+    <img src="assets/img/icono-agendar.png" class="tab-icon-img" />
+  </button>
 
-    <ion-tab-button tab="agendar" [routerLink]="['/tabs/agendar']">
-      <img src="assets/img/icono-agendar.png" class="tab-icon-img" />
-    </ion-tab-button>
+  <div class="separator"></div>
 
-    <div class="separator"></div> 
-
-    <ion-tab-button tab="perfil" [routerLink]="['/tabs/perfil']">
-      <img src="assets/img/icono-perfil.png" class="tab-icon-img" />
-    </ion-tab-button>
-
-  </ion-tab-bar>
-</ion-tabs>
+  <button [routerLink]="['/perfil']" [ngClass]="{ 'tab-selected': isActive('/perfil') }">
+    <img src="assets/img/icono-perfil.png" class="tab-icon-img" />
+  </button>
+</div>

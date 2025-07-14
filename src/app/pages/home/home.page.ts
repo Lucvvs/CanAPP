@@ -16,17 +16,23 @@ export class HomePage {
   loginForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private sqlite: SqliteService,
-    private toastCtrl: ToastController,
-    private router: Router,
-    private auth: AuthenticationService
-  ) {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-    });
-  }
+  private fb: FormBuilder,
+  private sqlite: SqliteService,
+  private toastCtrl: ToastController,
+  private router: Router,
+  private auth: AuthenticationService
+) {
+  this.loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+  });
+
+  // 🔁 Test temporal para ver si la navegación funciona
+  setTimeout(() => {
+    console.log('🧪 Redirección de prueba al constructor...');
+    this.router.navigateByUrl('/tabs/inicio');
+  }, 3000);
+}
 
   ionViewWillEnter() {
     Keyboard.setScroll({ isDisabled: false });
@@ -43,14 +49,16 @@ export class HomePage {
   try {
     const valid = await this.sqlite.authenticate(email, password);
     if (valid) {
-      console.log(`♥ Usuario ${email} encontrado y validado en la BDD`);
-      const user = await this.sqlite.getUsuario(email);
+  console.log(`♥ Usuario ${email} encontrado y validado en la BDD`);
+  const user = await this.sqlite.getUsuario(email);
+  console.log('👤 Usuario obtenido desde la BDD:', user);
 
-      this.auth.login(user); // ← guarda el usuario en sesión (asumo)
-      this.loginError = '';
+  this.auth.login(user); // guarda en localStorage
+  console.log('✅ Usuario guardado en localStorage. Intentando redirigir...');
 
-      this.router.navigate(['/inicio']); // ✅ AQUÍ VA LA REDIRECCIÓN
-    } else {
+  this.router.navigateByUrl('/inicio');
+  console.log('📍 Navegación realizada ');
+} else {
       this.loginError = 'Correo o contraseña incorrectos';
       this.loginForm.reset();
     }

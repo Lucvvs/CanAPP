@@ -1,24 +1,35 @@
 .custom-tab-bar {
   background: #1e1e1e;
   border-top: 2px solid #444;
-  padding: 6px;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding: 6px 10px;
+  padding-bottom: env(safe-area-inset-bottom, 24px); // ⬅️ Aumentamos padding inferior
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 0;
   overflow: visible;
+  height: 120px; // ⬅️ Subimos la altura total (antes 80px)
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  pointer-events: auto;
 
-
-  ion-tab-button {
-    --color-selected: #00e5ff;
-    width: auto;
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    flex: 1 1 0;
+    max-width: 33%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease, background-color 0.3s ease;
     border-radius: 14px;
-    margin: 0;
+    margin: 0 6px;
     position: relative;
 
     &.tab-selected {
@@ -32,23 +43,22 @@
     }
 
     .tab-icon-img {
-      width: 38px;
+      width: 50px;
       height: auto;
       object-fit: contain;
       transition: transform 0.2s ease;
     }
 
     &.tab-selected .tab-icon-img {
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
   }
 
-  /* Línea divisoria  */
   .separator {
-    width: 1.5px;
-    height: 60%;
+    width: 2px;
+    height: 50%;
     background-color: #ffffff;
-    margin: 0 8px; 
+    margin: 0 6px;
     border-radius: 2px;
   }
 }

@@ -70,3 +70,10 @@ ion-card-content p strong {
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
+
+.tab-bar-espaciador {
+  height: 160px; // ⬅️ Igual o un poco más alto que tu tab bar
+  background: transparent; // Opcional: ponle color si quieres efecto visual
+  flex-shrink: 0;
+}

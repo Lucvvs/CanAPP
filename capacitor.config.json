@@ -1,0 +1,6 @@
+{
+  "appId": "com.lucas.canapp",
+  "appName": "CanAPP",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
