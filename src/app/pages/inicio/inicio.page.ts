@@ -91,7 +91,7 @@ export class InicioPage implements OnInit {
   constructor(private router: Router, private api: ApiService) {}
 
   async ngOnInit() {
-  console.log('🚀 InicioPage cargado'); // 👈 Agrega esto
+  console.log('🚀 InicioPage cargado'); 
   try {
     const position = await Geolocation.getCurrentPosition();
     console.log('✅ Geolocalización activa:', position.coords.latitude, position.coords.longitude);

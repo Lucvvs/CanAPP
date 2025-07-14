@@ -15,7 +15,7 @@ export class HeaderComponent {
 
   volverAtras() {
     const currentUrl = this.router.url;
-    if (currentUrl === '/tabs/inicio') {
+    if (currentUrl === '/inicio') {
       this.auth.logout(); 
     } else {
       window.history.back();

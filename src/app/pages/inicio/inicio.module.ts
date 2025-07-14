@@ -6,7 +6,7 @@ import { InicioPage } from './inicio.page';
 import { MatRadioModule } from '@angular/material/radio';
 import { HeaderModule } from '../../components/header/header.module';
 import { TabsModule } from '../../components/tabs/tabs.module';
-import { InicioPageRoutingModule } from './inicio-routing.module'; // ✅ Ruta correcta
+import { InicioPageRoutingModule } from './inicio-routing.module'; 
 
 @NgModule({
   declarations: [InicioPage],
@@ -17,7 +17,7 @@ import { InicioPageRoutingModule } from './inicio-routing.module'; // ✅ Ruta c
     MatRadioModule,
     HeaderModule,
     TabsModule,
-    InicioPageRoutingModule // ✅ IMPORTACIÓN correcta del routing
+    InicioPageRoutingModule
   ]
 })
 export class InicioPageModule {}

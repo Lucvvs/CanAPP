@@ -54,7 +54,6 @@ export class HomePage {
   console.log('👤 Usuario obtenido desde la BDD:', user);
 
   this.auth.login(user); // guarda en localStorage
-  console.log('✅ Usuario guardado en localStorage. Intentando redirigir...');
 
   this.router.navigateByUrl('/inicio');
   console.log('📍 Navegación realizada ');

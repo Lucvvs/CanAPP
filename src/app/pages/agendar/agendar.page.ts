@@ -98,6 +98,6 @@ export class AgendarPage implements OnInit {
     await toast.present();
 
     this.agendarForm.reset();
-    this.router.navigate(['/tabs/perfil']);
+    this.router.navigate(['/perfil']);
   }
 }

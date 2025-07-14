@@ -7,7 +7,7 @@ export const authGuardGuard: CanActivateFn & CanActivateChildFn = () => {
   const router = inject(Router);
 
   const isAuth = auth.isAuthenticated();
-  console.log('🛡️ GUARD ejecutado. ¿Está autenticado?', isAuth);
+  console.log('🛡️ GUARD ejecutado  autenticado??', isAuth);
 
   if (isAuth) {
     return true;

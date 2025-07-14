@@ -64,7 +64,7 @@ export class ContactoPage implements OnInit {
       await toast.present();
 
       this.contactoForm.reset();
-      this.router.navigate(['/tabs/inicio']);
+      this.router.navigate(['/inicio']);
     } catch (e) {
       console.error('Error al guardar contacto en BDD', e);
       const toast = await this.toastCtrl.create({
