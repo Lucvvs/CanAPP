@@ -30,7 +30,7 @@ describe('RegistroPage', () => {
     fixture = TestBed.createComponent(RegistroPage);
     component = fixture.componentInstance;
 
-    // Simula que el API devuelve nacionalidades
+    // Simular respuesta de api con nacionalidades
     const api = TestBed.inject(ApiService) as jasmine.SpyObj<ApiService>;
     api.getNacionalidades.and.returnValue(of([]));
 
