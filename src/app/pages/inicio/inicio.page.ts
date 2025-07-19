@@ -102,13 +102,16 @@ export class InicioPage implements OnInit {
 
   ionViewWillEnter() {
     this.api.getNovedades().subscribe({
-      next: (res) => {
-        console.log('📰 Novedades actualizadas desde la API:', res);
-        this.novedades = [...this.novedades, ...res];
-      },
-      error: (err) => {
-        console.error('❌❌ Error al actualizar novedades desde la API:', JSON.stringify(err, null, 2));
-      }
+  next: (res) => {
+    console.log('📰 Novedades actualizadas desde la API:', res);
+    const nuevasNovedades = res.filter((novedadRemota: any) => {
+      return !this.novedades.some(n => n.titulo === novedadRemota.titulo);
     });
+    this.novedades = [...this.novedades, ...nuevasNovedades];
+  },
+  error: (err) => {
+    console.error('❌❌ Error al actualizar novedades desde la API:', JSON.stringify(err, null, 2));
+  }
+});
   }
 }

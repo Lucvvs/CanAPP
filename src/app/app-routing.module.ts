@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { authGuardGuard } from './guards/auth-guard.guard'; 
+import { authGuardGuard } from './guards/auth-guard.guard';
 
 const routes: Routes = [
   {
@@ -40,8 +40,12 @@ const routes: Routes = [
     loadChildren: () => import('./components/tabs/tabs.module').then(m => m.TabsModule)
   },
   {
+    path: 'not-found',
+    loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundPageModule)
+  },
+  {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'not-found',
     pathMatch: 'full'
   }
 ];

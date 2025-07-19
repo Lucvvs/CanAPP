@@ -12,6 +12,6 @@ export const authGuardGuard: CanActivateFn & CanActivateChildFn = () => {
   if (isAuth) {
     return true;
   } else {
-    return router.createUrlTree(['']);
+    return router.createUrlTree(['/home']); // ✅ redirección explícita
   }
 };

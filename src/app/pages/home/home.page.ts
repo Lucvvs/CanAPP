@@ -27,11 +27,7 @@ export class HomePage {
     password: ['', Validators.required],
   });
 
-  // 🔁 Test temporal para ver si la navegación funciona
-  setTimeout(() => {
-    console.log('🧪 Redirección de prueba al constructor...');
-    this.router.navigateByUrl('/tabs/inicio');
-  }, 3000);
+ 
 }
 
   ionViewWillEnter() {
